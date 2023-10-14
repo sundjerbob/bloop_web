@@ -1,0 +1,27 @@
+/* LandingPage.css */
+
+
+.content-holder {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+    width: 100vw;
+    height: 100vh;
+    background-color: green;
+}
+
+
+.title {
+    position: absolute;
+    top: 10vh;
+    left: 5%;
+    font-size: 120px;
+    width: 400px;
+    line-height: 170px;
+    letter-spacing: -5px;
+}

@@ -1,0 +1,16 @@
+
+.console {
+    position: absolute;
+
+    font-size: 50px;
+}
+.console span {
+    opacity: 0;
+
+}
+
+.console.start-typing span{
+    opacity: 1;
+    display: inline ;
+
+}
