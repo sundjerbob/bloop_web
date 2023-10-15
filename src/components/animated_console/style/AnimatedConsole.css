@@ -1,16 +1,52 @@
 
 .console {
     position: absolute;
-
+    top: 30vh;
+    left: 40vw;
+    background-color: #0c0c0c;
     font-size: 50px;
+
 }
+
+.border {
+    width: 100%;
+    background: none;
+}
+
+
 .console span {
     opacity: 0;
-
 }
 
-.console.start-typing span{
+.console.start-typing span {
     opacity: 1;
-    display: inline ;
-
 }
+
+.console span.keyword, span.type {
+    color: white;
+}
+
+.type {
+    color: #1558bf;
+}
+
+.operator {
+    color: #f9f1a5;
+}
+
+.console.start-typing .keyword {
+    color: #9c009e;
+}
+
+.function {
+    color: #c19c00;
+}
+
+.string-const {
+    color: #16c60c;
+}
+
+.num-const {
+    color: #61d6d6;
+}
+

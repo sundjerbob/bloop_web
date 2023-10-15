@@ -9,37 +9,59 @@ interface AnimatedConsoleProps {
 
 const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
 
+    const delta: number = 0.2;
+    let delaySum: number = 0;
+
     const renderedCode = code.map(
-        line => {
+        (line, lineIndex) => {
 
             const renderedLine = line.split(' ').map(
                 word => {
 
                     const renderedWord = word.split('').map(
-                        (char, index) => {
-
-                            const transitionDelay = `${index * 0.2}s`;
-
-                            const spanStyle = {
-                                transitionDelay,
-                            };
-
+                        (char, charIndex) => {
+                            const charStyle = {'transition': `opacity 0s linear ${delaySum += delta}s`};
                             return (
-                                <span key={index} style={spanStyle}>
+                                <span key={charIndex} style={charStyle}>
                                     {char}
                                 </span>
                             );
-
                         });
 
+                    let color;
+                    switch (word) {
+                        case 'for': {
+                            color = 'keyword';
+                            break;
+                        }
+                        case 'Print': {
+                            color = 'function';
+                            break;
+                        }
+
+                    }
+                    console.log(delaySum);
+                    const wordStyle = {'transition': `color 0s linear ${delaySum}s`};
                     return (
-                        <>
-                            {renderedWord} <span>{' '}</span>
-                        </>
+                        <span className={color} style={wordStyle}>
+                            {renderedWord}
+                            <span style={{'transitionDelay': `${delaySum += delta}s`}}>{' '}</span>
+                        </span>
                     )
                 });
+
+            /* let lineIndexDelay: number = 0;
+             for (let i: number = 1; i < code.length; ++i) {
+                 lineIndexDelay += line.length * delta;
+             }*/
+
             return (
                 <div>
+                    <span style={{
+                        'display': 'inline-block',
+                        'paddingRight': '100px',
+                        'transitionDelay': ((lineIndex === 0) ? delta : (delaySum - line.length * delta)) + 's'
+                    }}>{lineIndex}</span>
                     {renderedLine}
                 </div>
             )
@@ -57,10 +79,8 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
     })
     return (
         <div className="console">
-            <div className="line">
-                {renderedCode}
-                <span>│</span>
-            </div>
+            {renderedCode}
+            <span>│</span>
         </div>
     );
 };

@@ -8,9 +8,9 @@ const LandingPage: React.FC = () => {
             <div className="background"/>
             <div className="content-holder">
                 <div className="title">
-                    This
-                    <div>is</div>
-                    <h3>BLOOP:~$</h3>
+                    <h4>This</h4>
+                    <h4>is</h4>
+                    <h2>BLOOP~$</h2>
                 </div>
                 <AnimatedConsole code={["for micaga je ",'mionicka je luda']}/>
             </div>
