@@ -22,7 +22,7 @@
     opacity: 1;
 }
 
-.console span.keyword, span.type {
+.console span.keyword, span.function {
     color: white;
 }
 
@@ -38,7 +38,7 @@
     color: #9c009e;
 }
 
-.function {
+.console.start-typing .function {
     color: #c19c00;
 }
 

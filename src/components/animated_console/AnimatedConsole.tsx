@@ -9,7 +9,7 @@ interface AnimatedConsoleProps {
 
 const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
 
-    const delta: number = 0.1;
+    const delta: number = 0.01;
     let delaySum: number = 0;
 
     const renderedCode = code.map(

@@ -11,7 +11,12 @@ const LandingPage: React.FC = () => {
 
                     <h2>This is BLOOP~$</h2>
                 </div>
-                <AnimatedConsole code={["for micaga je ",'mionicka je luda', 'for cacaj for kurac moj']}/>
+                <AnimatedConsole code={
+                    [
+                        "majer for Print majer je ",
+                        'mionicka je for majer',
+                        'Print cacaj for  '
+                    ]}/>
             </div>
         </>
     );
