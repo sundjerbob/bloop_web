@@ -6,24 +6,131 @@
     top: 0;
     left: 0;
     display: flex;
-    place-items: center;
     min-width: 320px;
     min-height: 100vh;
     width: 100vw;
     height: 100vh;
+    background-color: #111010;
+    z-index: -999;
 }
-
 
 .title {
     position: absolute;
-    top: 10vh;
+    top: 0;
     left: 5%;
-    font-size: 100px;
-    width: 400px;
+    font-size: 70px;
+    width: 1000px;
     line-height: 140px;
     height: 30px;
     letter-spacing: -5px;
+    font-family: 'Kanit', sans-serif;
 }
-.title h3 {
-    transform: translateY(-50px);
+
+#b {
+    font-size: 210px;
+}
+
+#bloop {
+    font-size: 170px;
+    color: #111010;
+    text-shadow: 0 0 20px #3570e8, 0 0 10px #2433ff;
+    font-family: 'Pixelify Sans', sans-serif;
+    filter: blur(40px) contrast(40);
+    opacity: 0;
+    transition: all 0.75s linear 0.4s;
+
+}
+
+#line1 {
+    transition: all 0.2s linear 0s;
+    transform: translateX(-30%);
+    filter: blur(5px);
+    line-height: 120px;
+    opacity: 0;
+    font-family: ConsoleFont;
+
+}
+
+#line2 {
+    font-family: ConsoleFont;
+    transition: all 0.2s linear 0.2s;
+    transform: translateX(-30%);
+    filter: blur(5px);
+    line-height: 120px;
+    opacity: 0;
+}
+
+
+.slider {
+    left: 70%;
+    width: 40%;
+    height: 100%; /* Change the height to the desired thickness of the divider */
+    background-color: #181616FF; /* Change the color as needed */
+    position: relative;
+    transform: translateX(+100%);
+    opacity: 0;
+    z-index: -999;
+    transition: all 0.5s;
+
+}
+
+.slider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 100%;
+    background-color: inherit; /* Inherit the color from the parent divider */
+    transform-origin: 0 100%;
+    transform: skewX(+40deg); /* Adjust the angle as needed */
+}
+
+.content-holder.init {
+
+    #bloop {
+        filter: none;
+        opacity: 1;
+    }
+
+    .elise {
+        transition: all 1s ease-out 0.5s;
+        transform-origin: center calc(50% + 12px);
+        transform: rotate(calc(4 * 360deg));
+        display: inline-block;
+
+    }
+
+    #line1 {
+        transform: translateX(0);
+        opacity: 1;
+        filter: none;
+        font-size: 100px;
+    }
+
+    #line2 {
+        transform: translate(0, -3vh);
+        opacity: 1;
+        filter: none;
+        font-size: 100px;
+    }
+
+    .slider {
+        transform: translateX(0);
+        filter: ;
+        opacity: 1;
+        filter: none;
+
+    }
+
+}
+
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

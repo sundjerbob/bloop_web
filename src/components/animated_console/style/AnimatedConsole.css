@@ -1,52 +1,111 @@
 
 .console {
+    height: 0;
+    width: 0;
+    line-height: 40px;
+    margin: 35px;
+    padding: 0;
+    border: solid 2px #f2f2f2;
+    transition: width 0.3s ease-out 0.4s,
+    padding-left 0.3s ease-out 0.4s,
+    padding-right 0.3s ease-out 0.4s,
+    padding-top 0.3s ease-out 0.7s,
+    padding-bottom 0.3s ease-out 0.7s,
+    height 0.3s ease-out 0.7s;
+
+    font-size: 30px;
+
+    & span {
+        opacity: 0;
+    }
+}
+
+
+.console-wrapper {
+    font-family: ConsoleFont;
+    font-size: 30px;
     position: absolute;
-    top: 30vh;
-    left: 40vw;
+    top: 11vh;
+    left: 42vw;
+    display: inline-block;
     background-color: #0c0c0c;
-    font-size: 50px;
+    box-shadow: 20px 20px 42px black;
+    border-radius: 25px;
+    transform: translateX(1100px);
+    /*filter: blur(5px);*/
+    transition: all 0.4s ease-out;
+
+    .console-title {
+        position: absolute;
+        top: 13px;
+        left: 100px;
+        display: inline-block;
+        padding: 0 10px;
+        background-color: #0c0c0c;
+        color: #f2f2f2;
+        z-index: 20;
+        font-weight: 600;
+        opacity: 0;
+        transition: opacity 0.01s ease-in 0.419s;
+    }
+}
+
+.console-wrapper.start-typing {
+
+    transform: translateX(0);
+    /*filter: none;*/
+
+    .console-title{
+        opacity: 1;
+    }
+
+    .console {
+        height: 450px;
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+        padding-left: 25px;
+        padding-right: 25px;
+        width: 720px;
+
+
+        & span {
+            opacity: 1;
+        }
+    }
+
+    .keyword {
+        color: #9c009e;
+    }
+
+    .type {
+        color: #3a96dd;
+    }
+
+    .operator {
+        color: #f9f1a5;
+    }
+
+    .function {
+        color: #c19c00;
+    }
+
+    .string-const {
+        color: #16c60c;
+    }
+
+    .num-const {
+        color: #61d6d6;
+    }
 
 }
 
-.border {
-    width: 100%;
-    background: none;
+
+.console .keyword, .type, .operator, .function, .string-const, .num-const {
+    color: #f2f2f2;
 }
 
 
-.console span {
-    opacity: 0;
-}
-
-.console.start-typing span {
-    opacity: 1;
-}
-
-.console span.keyword, span.function {
-    color: white;
-}
-
-.type {
-    color: #1558bf;
-}
-
-.operator {
-    color: #f9f1a5;
-}
-
-.console.start-typing .keyword {
-    color: #9c009e;
-}
-
-.console.start-typing .function {
-    color: #c19c00;
-}
-
-.string-const {
-    color: #16c60c;
-}
-
-.num-const {
-    color: #61d6d6;
+#cursor {
+    font-weight: 0.3;
 }
 

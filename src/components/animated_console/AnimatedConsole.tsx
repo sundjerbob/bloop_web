@@ -9,12 +9,18 @@ interface AnimatedConsoleProps {
 
 const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
 
-    const delta: number = 0.01;
-    let delaySum: number = 0;
+    const delta: number = 0.0175;
+    let delaySum: number = 1;
+
+    const indent: number = 50;
+    let scopeDepth: number = 1;
 
     const renderedCode = code.map(
         (line, lineIndex) => {
-
+            if (code[lineIndex - 1] === '{')
+                ++scopeDepth;
+            if (line.trim() === '}')
+                --scopeDepth;
             const renderedLine = line.split(' ').map(
                 word => {
 
@@ -30,17 +36,43 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
 
                     let color;
                     switch (word) {
-                        case 'for': {
+                        case 'for':
+                        case 'return':
+                        case 'while':
+                        case 'if':
+                        case 'else':
+                        case 'as':
+                         {
                             color = 'keyword';
                             break;
                         }
+                        case 'number':
+                        case 'string':
+                        case 'function':
+                        case 'var':
+                        case 'const':{
+                            color = 'type'
+                            break;
+                        }
+                        case 'Read':
                         case 'Print': {
                             color = 'function';
                             break;
                         }
+                        case '+':
+                        case '-':
+                        case'=':
+                        case '==':
+                        case '+=':
+                        case '-=':{
+                            color = 'operator';
+                            break;
+                        }
 
                     }
-                    console.log(delaySum);
+                    if(isNumeric(word))
+                        color = 'num-const';
+
                     const wordStyle = {'transition': `color 0s linear ${delaySum}s`};
                     return (
                         <span className={color} style={wordStyle}>
@@ -50,17 +82,14 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
                     )
                 });
 
-            /* let lineIndexDelay: number = 0;
-             for (let i: number = 1; i < code.length; ++i) {
-                 lineIndexDelay += line.length * delta;
-             }*/
 
             return (
                 <div>
                     <span style={{
                         'display': 'inline-block',
-                        'paddingRight': '100px',
-                        'transitionDelay': ((lineIndex === 0) ? delta : (delaySum - line.length * delta)) + 's'
+                        'color': '#767676',
+                        'paddingRight': `${scopeDepth * indent}px`,
+                        'transitionDelay': ((lineIndex === 0) ? delaySum : (delaySum - line.length * delta)) + 's'
                     }}>{lineIndex}</span>
                     {renderedLine}
                 </div>
@@ -72,17 +101,27 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
     useEffect(() => {
         setTimeout(
             () => {
-                (document.querySelector('.console') as HTMLElement)?.classList.add('start-typing');
-            }, 500);
+                (document.querySelector('.console-wrapper') as HTMLElement)?.classList.add('start-typing');
+            }, 300);
 
 
     })
     return (
-        <div className="console">
-            {renderedCode}
-            <span>│</span>
-        </div>
+        <>
+            <div className="console-wrapper">
+                <span className="console-title">Bloop</span>
+                <div className="console">
+                    {renderedCode}
+                    <span id="cursor">│</span>
+                </div>
+            </div>
+        </>
+
     );
 };
 
+function isNumeric(str: string): boolean {
+    const numericPattern = /^-?\d+(\.\d+)?$/;
+    return numericPattern.test(str);
+}
 export default AnimatedConsole;
