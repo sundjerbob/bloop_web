@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import './style/LandingPage.css'
 import AnimatedConsole from "../../components/animated_console/AnimatedConsole.tsx";
+import NeonButton from "../../components/call_to_action/NeonButton.tsx";
 
 const LandingPage: React.FC = () => {
     useEffect(() => {
@@ -19,26 +20,34 @@ const LandingPage: React.FC = () => {
         'Print (cacaj)',
         '}',
         'for var b to c   ',
-        '{' ,
+        '{',
         'return micovanko'
-        ,'}'
+        , '}'
     ];
 
     return (
         <>
 
             <div className="content-holder">
+
                 <div className="slider"/>
+                <div className="bg"></div>
+                <div className="call-to-action">
+                    We have a console demo version, rew it up.
+                    <NeonButton/>
+                </div>
 
                 <div className="title">
+                    <div id="line1">This</div>
+                    <div id="line2">is</div>
+                    <span id="bloop">
+                        <span>Bl</span>
+                        <span className="elise">oo</span>
+                        <span>p</span>
+                        <span className="tilda">~</span>
+                        <span>$</span>
+                    </span>
 
-                    <h2>
-                        <div id="line1">This</div>
-                        <div id="line2">is</div>
-                        <span id="bloop">
-                            <span id="b">B</span>l<span className="elise" >oo</span>p<span className="tilda">~$</span>
-                        </span>
-                    </h2>
                 </div>
 
                 <AnimatedConsole code={code}/>

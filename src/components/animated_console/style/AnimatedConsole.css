@@ -25,8 +25,8 @@
     font-family: ConsoleFont;
     font-size: 30px;
     position: absolute;
-    top: 11vh;
-    left: 42vw;
+    top: 20vh;
+    left: 50vw;
     display: inline-block;
     background-color: #0c0c0c;
     box-shadow: 20px 20px 42px black;
@@ -50,22 +50,23 @@
     }
 }
 
+.console .keyword, .type, .operator, .function, .string-const, .num-const {
+    color: #f2f2f2;
+}
+
 .console-wrapper.start-typing {
 
     transform: translateX(0);
     /*filter: none;*/
 
-    .console-title{
+    .console-title {
         opacity: 1;
     }
 
     .console {
-        height: 450px;
-        padding-top: 2.5rem;
-        padding-bottom: 2.5rem;
-        padding-left: 25px;
-        padding-right: 25px;
-        width: 720px;
+        height: 410px;
+        padding: 2.5rem 25px;
+        width: 700px;
 
 
         & span {
@@ -97,11 +98,6 @@
         color: #61d6d6;
     }
 
-}
-
-
-.console .keyword, .type, .operator, .function, .string-const, .num-const {
-    color: #f2f2f2;
 }
 
 

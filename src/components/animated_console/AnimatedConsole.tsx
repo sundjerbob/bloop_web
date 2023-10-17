@@ -9,8 +9,8 @@ interface AnimatedConsoleProps {
 
 const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
 
-    const delta: number = 0.0175;
-    let delaySum: number = 1;
+    const delta: number = 0.01;
+    let delaySum: number = 0.8;
 
     const indent: number = 50;
     let scopeDepth: number = 1;
