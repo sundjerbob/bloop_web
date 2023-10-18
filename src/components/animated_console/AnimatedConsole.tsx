@@ -11,7 +11,7 @@ interface AnimatedConsoleProps {
 
 const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
 
-    const delta: number = 0.03;
+    const delta: number = 0.1;
     let delaySum: number = 0.8;
 
     const indent: number = 50;
@@ -90,7 +90,7 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
                     <span className="comment" style={{
                         'display': 'inline-block',
                         'paddingRight': `${scopeDepth * indent}px`,
-                        'transitionDelay': ((lineIndex === 0) ? delaySum : (delaySum - line.length * delta)) + 's'
+                        'transitionDelay': (delaySum - line.length * delta) + 's'
                     }}>{lineIndex}</span>
                     {renderedLine}
                 </div>
