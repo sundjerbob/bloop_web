@@ -2,6 +2,8 @@
 
 import React, {useEffect} from "react";
 import './style/AnimatedConsole.css'
+import CallToAction from "../call_to_action/CallToAction.tsx";
+
 
 interface AnimatedConsoleProps {
     code: string[];
@@ -41,8 +43,7 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
                         case 'while':
                         case 'if':
                         case 'else':
-                        case 'as':
-                         {
+                        case 'as': {
                             color = 'keyword';
                             break;
                         }
@@ -50,7 +51,7 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
                         case 'string':
                         case 'function':
                         case 'var':
-                        case 'const':{
+                        case 'const': {
                             color = 'type'
                             break;
                         }
@@ -64,13 +65,13 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
                         case'=':
                         case '==':
                         case '+=':
-                        case '-=':{
+                        case '-=': {
                             color = 'operator';
                             break;
                         }
 
                     }
-                    if(isNumeric(word))
+                    if (isNumeric(word))
                         color = 'num-const';
 
                     const wordStyle = {'transition': `color 0s linear ${delaySum}s`};
@@ -85,9 +86,8 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
 
             return (
                 <div>
-                    <span style={{
+                    <span className="comment" style={{
                         'display': 'inline-block',
-                        'color': '#767676',
                         'paddingRight': `${scopeDepth * indent}px`,
                         'transitionDelay': ((lineIndex === 0) ? delaySum : (delaySum - line.length * delta)) + 's'
                     }}>{lineIndex}</span>
@@ -102,20 +102,24 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
         setTimeout(
             () => {
                 (document.querySelector('.console-wrapper') as HTMLElement)?.classList.add('start-typing');
-            }, 300);
+            }, 1);
 
 
     })
     return (
-        <>
-            <div className="console-wrapper">
-                <span className="console-title">Bloop</span>
-                <div className="console">
-                    {renderedCode}
-                    <span id="cursor">│</span>
-                </div>
+
+        <div className="console-wrapper">
+
+            <span className="console-title">Bloop</span>
+            <div className="console">
+                {renderedCode}
+                <span id="cursor">│</span>
             </div>
-        </>
+
+            <CallToAction/>
+
+        </div>
+
 
     );
 };
@@ -124,4 +128,5 @@ function isNumeric(str: string): boolean {
     const numericPattern = /^-?\d+(\.\d+)?$/;
     return numericPattern.test(str);
 }
+
 export default AnimatedConsole;

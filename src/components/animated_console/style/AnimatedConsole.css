@@ -1,29 +1,7 @@
 
-.console {
-    height: 0;
-    width: 0;
-    line-height: 40px;
-    margin: 35px;
-    padding: 0;
-    border: solid 2px #f2f2f2;
-    transition: width 0.3s ease-out 0.4s,
-    padding-left 0.3s ease-out 0.4s,
-    padding-right 0.3s ease-out 0.4s,
-    padding-top 0.3s ease-out 0.7s,
-    padding-bottom 0.3s ease-out 0.7s,
-    height 0.3s ease-out 0.7s;
-
-    font-size: 30px;
-
-    & span {
-        opacity: 0;
-    }
-}
-
-
 .console-wrapper {
     font-family: ConsoleFont;
-    font-size: 30px;
+    font-size: 25px;
     position: absolute;
     top: 20vh;
     left: 50vw;
@@ -31,11 +9,12 @@
     background-color: #0c0c0c;
     box-shadow: 20px 20px 42px black;
     border-radius: 25px;
-    transform: translateX(1100px);
-    /*filter: blur(5px);*/
-    transition: all 0.4s ease-out;
+    transform: translateX(30vw);
+    transition: transform 0.4s ease-out 0s,
+    padding-bottom 0.3s ease-out 0.7s;
 
     .console-title {
+        font-size: 30px;
         position: absolute;
         top: 13px;
         left: 100px;
@@ -47,27 +26,49 @@
         font-weight: 600;
         opacity: 0;
         transition: opacity 0.01s ease-in 0.419s;
+        border-radius: 5px;
+    }
+    scale: 1.1;
+}
+
+.console {
+    height: 0;
+    width: 0;
+    line-height: 33px;
+    margin: 35px;
+    border-radius: 15px;
+    border: solid 2px #f2f2f2;
+    transition: width 0.3s ease-out 0.4s,
+    padding-left 0.3s ease-out 0.4s,
+    padding-right 0.3s ease-out 0.4s,
+    padding-top 0.3s ease-out 0.7s,
+    padding-bottom 0.3s ease-out 0.7s,
+    height 0.3s ease-out 0.7s;
+    background-color: #111010;
+
+    & span {
+        opacity: 0;
     }
 }
 
-.console .keyword, .type, .operator, .function, .string-const, .num-const {
+
+.console .keyword, .type, .operator, .function, .string-const, .num-const, .comment {
     color: #f2f2f2;
 }
 
 .console-wrapper.start-typing {
 
     transform: translateX(0);
-    /*filter: none;*/
+    padding-bottom: 120px;
 
     .console-title {
         opacity: 1;
     }
 
     .console {
-        height: 410px;
-        padding: 2.5rem 25px;
+        height: 350px;
+        padding: 40px 25px 20px;
         width: 700px;
-
 
         & span {
             opacity: 1;
@@ -98,10 +99,13 @@
         color: #61d6d6;
     }
 
+    .comment {
+        color: #767676;
+    }
 }
 
-
 #cursor {
+    opacity: 0;
     font-weight: 0.3;
 }
 

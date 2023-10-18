@@ -2,7 +2,7 @@
 
 import React from "react";
 import './style/NeonButton.css'
-import play from '../../assets/play-button.svg'
+import play from '../../../assets/images/play-button.svg'
 
 const NeonButton: React.FC = () => {
 

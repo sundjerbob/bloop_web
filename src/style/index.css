@@ -6,8 +6,8 @@
 
 @font-face {
     font-family: 'ConsoleFont';
-    src: url('../fonts/CascadiaMono-Regular.woff2') format('woff2'), /* Modern browsers */
-    url('../fonts/CascadiaMono-Regular.woff') format('woff'); /* Older browsers */
+    src: url('../assets/fonts/CascadiaMono-Regular.woff2') format('woff2'), /* Modern browsers */
+    url('../assets/fonts/CascadiaMono-Regular.woff') format('woff'); /* Older browsers */
     font-weight: normal;
     font-style: normal;
 }

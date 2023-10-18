@@ -1,0 +1,51 @@
+/* CallToAction.css */
+
+.call-to-action {
+    position: absolute;
+    display: flex;
+    left: 0;
+    font-family: ConsoleFont;
+    width: calc(100% - 70px);
+    height: 65px;
+    color: #f2f2f2;
+    margin: 10px 35px;
+    .neon-button {
+        left: 60%;
+        top: -46px;
+        transform: scale(0.42);
+
+    }
+
+    .prompt {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        font-size: 25px;
+        background-color: #111010;
+        border-radius: 15px;
+        align-content: center;
+        height: 98%;
+        width: 0;
+        transition: all 0.2s ease-out 0.95s;
+
+        & span {
+            opacity: 0;
+            transition: all  0.3s ease-out 1.2s;
+        }
+    }
+}
+
+.console-wrapper.start-typing {
+
+
+    .prompt {
+        width: 65%;
+        border: solid 2px #f2f2f2;
+
+        & span {
+            opacity: 1;
+        }
+    }
+}

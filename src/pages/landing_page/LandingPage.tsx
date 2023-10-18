@@ -1,7 +1,6 @@
 import React, {useEffect} from "react";
 import './style/LandingPage.css'
 import AnimatedConsole from "../../components/animated_console/AnimatedConsole.tsx";
-import NeonButton from "../../components/call_to_action/NeonButton.tsx";
 
 const LandingPage: React.FC = () => {
     useEffect(() => {
@@ -32,10 +31,6 @@ const LandingPage: React.FC = () => {
 
                 <div className="slider"/>
                 <div className="bg"></div>
-                <div className="call-to-action">
-                    We have a console demo version, rew it up.
-                    <NeonButton/>
-                </div>
 
                 <div className="title">
                     <div id="line1">This</div>
@@ -47,10 +42,10 @@ const LandingPage: React.FC = () => {
                         <span className="tilda">~</span>
                         <span>$</span>
                     </span>
-
                 </div>
 
                 <AnimatedConsole code={code}/>
+
             </div>
         </>
     );
