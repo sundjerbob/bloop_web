@@ -13,14 +13,14 @@ const LandingPage: React.FC = () => {
 
     const code = [
         'const c = 10',
-        'if majer == 25 ',
+        'if kita  == 25 ',
         '{',
-        'Read (c)',
-        'Print (cacaj)',
-        '}',
+        '   else Read (c)',
+        '   Print (cacaj)',
+        '   }',
         'for var b to c   ',
         '{',
-        'return micovanko'
+        '   return micovanko var abvg += 8'
         , '}'
     ];
 

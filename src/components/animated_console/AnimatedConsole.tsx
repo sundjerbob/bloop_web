@@ -11,7 +11,7 @@ interface AnimatedConsoleProps {
 
 const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
 
-    const delta: number = 0.01;
+    const delta: number = 0.03;
     let delaySum: number = 0.8;
 
     const indent: number = 50;
@@ -43,7 +43,8 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
                         case 'while':
                         case 'if':
                         case 'else':
-                        case 'as': {
+                        case 'as':
+                        case 'to':{
                             color = 'keyword';
                             break;
                         }
