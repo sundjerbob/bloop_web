@@ -16,7 +16,7 @@ const CallToAction: React.FC = () => {
                           }>
                         {'~$'}
                     </span>
-                    {' Start coding now!'}
+                    {'Start your coding journey!'}
                 </span>
             </div>
             <NeonButton/>

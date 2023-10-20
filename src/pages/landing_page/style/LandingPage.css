@@ -107,7 +107,7 @@
         .tilda {
             transform-origin: 55% 55%; /* Set the origin to the center */
             animation: pulse 4s linear 0.4s infinite,
-            rotate 11s steps(1, end) 4s infinite;
+            rotate 11s steps(1, start) 4s infinite;
             scale: 1.4;
             transform: translateX(-1px);
         }
