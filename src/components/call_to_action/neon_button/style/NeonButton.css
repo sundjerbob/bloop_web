@@ -8,29 +8,26 @@
 .neon-button {
     position: absolute;
     align-content: center;
-    vertical-align: center;
     align-items: center;
+    padding-right: 10px;
     display: flex;
     cursor: pointer;
     text-decoration: none;
-    letter-spacing: 5px;
+    letter-spacing: 2px;
     color: var(--clr-neon);
     border: var(--clr-neon) 0.125em solid;
-    padding: 20px 25px 20px 25px;
-    line-height: 100px;
     border-radius: 0.25em;
     z-index: 100;
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
-    font-weight: 800;
-    font-size: 80px;
+    font-size: 40px;
     box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
     font-family: ConsoleFont;
     transition: letter-spacing 0.1s ease-out;
     & img {
-        padding-left: 15px;
+        padding-left: 7px;
         display: inline-block;
-        width: 40px;
-        height: 40px;
+        width: 22px;
+        height: 22px;
         filter: blur(1px);
         transition: scale 0.2s ease-out;
     }
@@ -41,15 +38,16 @@
     content: "";
     position: absolute;
     background: var(--clr-neon);
-    top: 80%;
+    top: 110%;
     left: 0;
     width: 100%;
     height: 100%;
 
     transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
-    filter: blur(1em);
+    filter: blur(30px);
     opacity: 0.7;
 }*/
+
 
 .neon-button::after {
     content: "";
@@ -69,10 +67,8 @@
 .neon-button:focus {
     color: var(--clr-bg);
     text-shadow: none;
-    letter-spacing: 8px;
-    padding-right: 30px;
     & img {
-        scale: 1.3;
+        scale: 1.2;
         animation: play 1s linear 0.2s infinite;
     }
 }
@@ -82,7 +78,7 @@
         transform: translateX(-5px);
     }
     100%{
-        transform: translateX(10px)
+        transform: translateX(+7px)
     }
 }
 .neon-button:hover::before,

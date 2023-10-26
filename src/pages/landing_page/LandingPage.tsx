@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import './style/LandingPage.css'
 import AnimatedConsole from "../../components/animated_console/AnimatedConsole.tsx";
+import HeroSection from "../../components/hero_section/HeroSection.tsx";
 
 const LandingPage: React.FC = () => {
     useEffect(() => {
@@ -24,27 +25,16 @@ const LandingPage: React.FC = () => {
         , '}'
     ];
 
+
     return (
         <>
 
             <div className="content-holder">
+                <AnimatedConsole code={code}/>
 
                 <div className="slider"/>
-                <div className="bg"></div>
+                <HeroSection/>
 
-                <div className="title">
-                    <div id="line1">This</div>
-                    <div id="line2">is</div>
-                    <span id="bloop">
-                        <span>Bl</span>
-                        <span className="elise">oo</span>
-                        <span>p</span>
-                        <span className="tilda">~</span>
-                        <span>$</span>
-                    </span>
-                </div>
-
-                <AnimatedConsole code={code}/>
 
             </div>
         </>

@@ -10,59 +10,12 @@
     min-height: 100vh;
     width: 100vw;
     height: 100vh;
-
-}
-
-
-.bg {
-    position: fixed;
     background-color: #111010;
     z-index: -1000;
-    width: 100vw;
-    height: 100vh;
-}
-
-.title {
-    position: absolute;
-    top: 3vh;
-    left: 3vw;
-    width: 700px;
-    height: 1000vh;
-    font-size: 120px;
-    color: #f2f2f2
 }
 
 
-#bloop {
-    text-shadow: 0 0 20px #3570e8, 0 0 10px #0004fc;
-    font-family: 'Pixelify Sans', sans-serif;
-    font-size: 122px;
-    filter: blur(40px) contrast(40);
-    opacity: 0;
-    transition: all 0.75s linear 0.4s;
-    color: #111010;
-    letter-spacing: -5px;
-    display: inline-block;
 
-}
-
-#line1 {
-    transition: all 0.2s linear 0s;
-    transform: translateX(-30%);
-    filter: blur(5px);
-    line-height: 100px;
-    font-weight: 800;
-    opacity: 0;
-}
-
-#line2 {
-    transition: all 0.2s linear 0.2s;
-    transform: translateX(-30%);
-    filter: blur(5px);
-    font-weight: 800;
-    line-height: 100px;
-    opacity: 0;
-}
 
 
 .slider {
@@ -86,113 +39,15 @@
     background-color: inherit; /* Inherit the color from the parent divider */
     transform-origin: 0 100%;
     transform: skewX(+51deg); /* Adjust the angle as needed */
+    z-index: -999;
+
 }
 
-
 .content-holder.init {
-
-    #bloop {
-        filter: none;
-        opacity: 1;
-        letter-spacing: -5px;
-        position: relative;
-        top: -7vh;
-
-        & span {
-            animation: pulse 4s linear 0.4s infinite;
-            display: inline-block;
-
-        }
-
-        .tilda {
-            transform-origin: 55% 55%; /* Set the origin to the center */
-            animation: pulse 4s linear 0.4s infinite,
-            rotate 11s steps(1, start) 4s infinite;
-            scale: 1.4;
-            transform: translateX(-1px);
-        }
-
-        .elise {
-            transition: transform 3s ease-out 0.5s;
-            transform-origin: 50% 55%;
-            transform: rotate(calc(4 * 360deg));
-        }
-    }
-
-
-    #line1 {
-        transform: translateX(0);
-        opacity: 1;
-        filter: none;
-        font-size: 72px;
-    }
-
-    #line2 {
-        transform: translate(0, -3vh);
-        opacity: 1;
-        filter: none;
-        font-size: 72px;
-
-    }
-
     .slider {
         transform: translateX(0);
         filter: ;
         opacity: 1;
         filter: none;
     }
-
-}
-
-
-@keyframes pulse {
-    0% {
-        text-shadow: 0 0 20px #3570e8, 0 0 10px #2433ff;
-        color: #111010;
-
-    }
-    50% {
-        text-shadow: 0 0 35px #3570e8, 0 0 25px #2433ff;
-        color: #111010;
-    }
-    60% {
-        text-shadow: 0 0 30px #3570e8, 0 0 25px #2433ff;
-        color: #111010;
-
-    }
-    0% {
-        text-shadow: 0 0 20px #3570e8, 0 0 10px #2433ff;
-        color: #111010;
-    }
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg); /* Start at 90 degrees */
-    }
-    12.5% {
-        transform: rotate(45deg); /* Rotate to 180 degrees */
-    }
-    25% {
-        transform: rotate(90deg); /* Rotate to 240 degrees */
-    }
-    37.5% {
-        transform: rotate(135deg); /* Rotate to 360 degrees */
-    }
-    50% {
-        transform: rotate(180deg); /* Repeat the cycle */
-    }
-    62.5% {
-        transform: rotate(225deg); /* Repeat the cycle */
-    }
-    75% {
-        transform: rotate(270deg); /* Repeat the cycle */
-    }
-    87.5% {
-        transform: rotate(315deg); /* Repeat the cycle */
-    }
-    100% {
-        transform: rotate(360deg); /* Repeat the cycle */
-    }
-
 }

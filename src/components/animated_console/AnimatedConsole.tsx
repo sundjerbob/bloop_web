@@ -1,8 +1,8 @@
 // AnimatedConsole.tsx
 
 import React, {useEffect} from "react";
-import './style/AnimatedConsole.css'
 import CallToAction from "../call_to_action/CallToAction.tsx";
+import './style/AnimatedConsole.css';
 
 
 interface AnimatedConsoleProps {
@@ -44,7 +44,7 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
                         case 'if':
                         case 'else':
                         case 'as':
-                        case 'to':{
+                        case 'to': {
                             color = 'keyword';
                             break;
                         }
@@ -72,8 +72,9 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
                         }
 
                     }
-                    if (isNumeric(word))
+                    if (isNumeric(word)) {
                         color = 'num-const';
+                    }
 
                     const wordStyle = {'transition': `color 0s linear ${delaySum}s`};
                     return (
@@ -87,24 +88,52 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
 
             return (
                 <div>
-                    <span className="comment" style={{
-                        'paddingRight': `${scopeDepth * indent}px`,
-                        'transitionDelay': (delaySum - line.length * delta) + 's'
-                    }}>{lineIndex}</span>
+                    <span className="comment"
+                          style={{
+                              'paddingRight': `${scopeDepth * indent}px`,
+                              'transitionDelay': (delaySum - line.length * delta) + 's'
+                          }}>{lineIndex}</span>
                     {renderedLine}
                 </div>
             )
 
         });
 
+/*
+   function rotateElement(event: MouseEvent, element: HTMLElement | null) {
+        if (element === null) {
+            return;
+        }
+
+        const elementRect = element.getBoundingClientRect(); // Get the element's position and dimensions
+        const x = event.clientX - elementRect.left; // Calculate cursor's x position relative to the element
+        const y = event.clientY - elementRect.top;  // Calculate cursor's y position relative to the element
+
+        const middleX = elementRect.width / 2;
+        const middleY = elementRect.height / 2;
+
+        const offsetX = ((x - middleX) / middleX) * 45;
+        const offsetY = ((y - middleY) / middleY) * 45;
+
+        // Apply the updated transform property directly to the element's style
+        element.style.transform = `perspective(5000px) rotateY(${offsetX}deg) rotateX(${-offsetY}deg)`;
+    }
+
+*/
+
 
     useEffect(() => {
+        const consoleWrapper = document.querySelector('.console-wrapper') as HTMLElement;
         setTimeout(
             () => {
-                (document.querySelector('.console-wrapper') as HTMLElement)?.classList.add('start-typing');
+                consoleWrapper.classList.add('start-typing');
+                //window.addEventListener('mousemove', e => rotateElement(e, consoleWrapper))
             }, 1);
 
+        return () => {
+            //consoleWrapper.removeEventListener('mousemove', e => rotateElement(e, consoleWrapper))
 
+        };
     })
     return (
 
@@ -119,7 +148,6 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
             <CallToAction/>
 
         </div>
-
 
     );
 };

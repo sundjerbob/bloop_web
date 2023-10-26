@@ -2,21 +2,20 @@
 .console-wrapper {
     font-family: ConsoleFont;
     font-size: 25px;
-    position: absolute;
+    position: fixed;
     top: 20vh;
-    left: 50vw;
+    left: 80vw;
     display: inline-block;
     background-color: #0c0c0c;
-    box-shadow: 20px 20px 42px black;
+    box-shadow: 10px 10px 42px black;
     border-radius: 25px;
-    transform: translateX(30vw);
-    transition: transform 0.4s ease-out 0s,
+    transition: left 0.4s ease-out 0.05s,
     padding-bottom 0.3s ease-out 0.7s;
 
     .console-title {
         font-size: 30px;
         position: absolute;
-        top: 13px;
+        top: 14px;
         left: 100px;
         display: inline-block;
         padding: 0 10px;
@@ -28,6 +27,7 @@
         transition: opacity 0.01s ease-in 0.419s;
         border-radius: 5px;
     }
+
     scale: 1.1;
 }
 
@@ -46,6 +46,7 @@
     height 0.3s ease-out 0.7s;
     background-color: #111010;
 
+
     & span {
         opacity: 0;
     }
@@ -57,9 +58,10 @@
 }
 
 .console-wrapper.start-typing {
-
-    transform: translateX(0);
+    left: 50vw;
     padding-bottom: 120px;
+
+
 
     .console-title {
         opacity: 1;
