@@ -2,51 +2,52 @@
 
 
 .content-holder {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    display: flex;
     min-width: 320px;
     min-height: 100vh;
-    width: 100vw;
-    height: 100vh;
-    background-color: #111010;
-    z-index: -1000;
+    background-color: honeydew;
+
 }
 
+.bg {
+    background-color: #111010;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
 
+}
 
 
 
 .slider {
     left: 90vw;
-    width: 40%;
-    height: 100%; /* Change the height to the desired thickness of the divider */
+    top: 0;
+    width: 40vw;
+    height: 100vh; /* Change the height to the desired thickness of the divider */
     background-color: #181616FF; /* Change the color as needed */
-    position: relative;
+    position: absolute;
     transform: translateX(+100%);
     opacity: 0;
-    z-index: -999;
     transition: all 0.5s;
-
+    z-index: 0;
 }
 
 .slider::before {
     content: '';
     position: absolute;
     width: 100vw;
-    height: 100%;
-    background-color: inherit; /* Inherit the color from the parent divider */
+    height: 100vh;
+    background-color: #181616FF; /* Inherit the color from the parent divider */
     transform-origin: 0 100%;
     transform: skewX(+51deg); /* Adjust the angle as needed */
-    z-index: -999;
 
 }
 
 .content-holder.init {
     .slider {
         transform: translateX(0);
-        filter: ;
         opacity: 1;
         filter: none;
     }
