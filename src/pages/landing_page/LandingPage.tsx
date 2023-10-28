@@ -7,16 +7,13 @@ const LandingPage: React.FC = () => {
 
     const [scrollPosition, setScrollPosition] = useState(0);
 
-    const slider = document.querySelector('.slider');
-
-    const handleScroll = () => {
-        // Update scrollPosition state with the current scroll position
-        setScrollPosition(window.scrollY);
-        slider?.setAttribute('--scroll-position', scrollPosition.toString());
-    };
 
     useEffect(() => {
+        const handleScroll = () => {
+            setScrollPosition(window.scrollY);
+        };
 
+        // Add scroll event listener
         window.addEventListener('scroll', handleScroll);
 
         setTimeout(() => {
@@ -49,13 +46,12 @@ const LandingPage: React.FC = () => {
 
             <div className="content-holder">
                 <div className="bg"/>
-                <div className="slider"/>
+                <div className="slider" style={{transform: `translateX(${scrollPosition}px)`}}/>
 
                 <HeroSection/>
 
 
                 <AnimatedConsole code={code}/>
-
 
 
             </div>
