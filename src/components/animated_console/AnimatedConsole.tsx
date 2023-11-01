@@ -1,6 +1,6 @@
 // AnimatedConsole.tsx
 
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import CallToAction from "../call_to_action/CallToAction.tsx";
 import './style/AnimatedConsole.css';
 
@@ -70,7 +70,6 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
                             color = 'operator';
                             break;
                         }
-
                     }
                     if (isNumeric(word)) {
                         color = 'num-const';
@@ -99,31 +98,40 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
 
         });
 
-/*
-   function rotateElement(event: MouseEvent, element: HTMLElement | null) {
-        if (element === null) {
-            return;
+    /*
+       function rotateElement(event: MouseEvent, element: HTMLElement | null) {
+            if (element === null) {
+                return;
+            }
+
+            const elementRect = element.getBoundingClientRect(); // Get the element's position and dimensions
+            const x = event.clientX - elementRect.left; // Calculate cursor's x position relative to the element
+            const y = event.clientY - elementRect.top;  // Calculate cursor's y position relative to the element
+
+            const middleX = elementRect.width / 2;
+            const middleY = elementRect.height / 2;
+
+            const offsetX = ((x - middleX) / middleX) * 45;
+            const offsetY = ((y - middleY) / middleY) * 45;
+
+            // Apply the updated transform property directly to the element's style
+            element.style.transform = `perspective(5000px) rotateY(${offsetX}deg) rotateX(${-offsetY}deg)`;
         }
 
-        const elementRect = element.getBoundingClientRect(); // Get the element's position and dimensions
-        const x = event.clientX - elementRect.left; // Calculate cursor's x position relative to the element
-        const y = event.clientY - elementRect.top;  // Calculate cursor's y position relative to the element
-
-        const middleX = elementRect.width / 2;
-        const middleY = elementRect.height / 2;
-
-        const offsetX = ((x - middleX) / middleX) * 45;
-        const offsetY = ((y - middleY) / middleY) * 45;
-
-        // Apply the updated transform property directly to the element's style
-        element.style.transform = `perspective(5000px) rotateY(${offsetX}deg) rotateX(${-offsetY}deg)`;
-    }
-
-*/
+    */
 
 
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const scrollThreshold: number = (30 * window.innerHeight) / 100;
+
+    const handleScroll = () => {
+
+        setScrollPosition(window.scrollY < scrollThreshold ? 0 : (window.scrollY - scrollThreshold) / 2);
+    };
     useEffect(() => {
         const consoleWrapper = document.querySelector('.console-wrapper') as HTMLElement;
+        window.addEventListener('scroll', handleScroll);
+
         setTimeout(
             () => {
                 consoleWrapper.classList.add('start-typing');
@@ -137,7 +145,7 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
     })
     return (
 
-        <div className="console-wrapper">
+        <div className="console-wrapper" style={{transform: 'rotateX(' + scrollPosition + 'deg)'}}>
 
             <span className="console-title">Bloop</span>
             <div className="console">

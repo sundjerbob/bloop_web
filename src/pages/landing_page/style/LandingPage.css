@@ -6,8 +6,8 @@
     top: 0;
     left: 0;
     min-width: 320px;
-    min-height: 100vh;
-    background-color: honeydew;
+    min-height: 200vh;
+    background-color: #111010;
 
 }
 
@@ -16,21 +16,31 @@
     z-index: -1;
     width: 100vw;
     height: 100vh;
-
+    position: fixed;
 }
 
 
+.top-nav {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100px;
+    transition: all 0.2s ease-out ;
+    background-color: #181616FF; /* Change the color as needed */
+    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5);
+}
 
 .slider {
-    left: 90vw;
+    left: 170vw;
     top: 0;
     width: 40vw;
     height: 100vh; /* Change the height to the desired thickness of the divider */
     background-color: #181616FF; /* Change the color as needed */
-    position: absolute;
-    transform: translateX(+100%);
+    position: fixed;
     opacity: 0;
-    transition: all 0.5s;
+    transition: left 0.5s ease-out,
+    filter 0.5s ease-out,
+    opacity 0.5s ease-out;
     z-index: 0;
 }
 
@@ -41,13 +51,15 @@
     height: 100vh;
     background-color: #181616FF; /* Inherit the color from the parent divider */
     transform-origin: 0 100%;
-    transform: skewX(+51deg); /* Adjust the angle as needed */
-
+    transform: skewX(+50deg); /* Adjust the angle as needed */
+    filter: blur(1px);
 }
 
 .content-holder.init {
+
+
     .slider {
-        transform: translateX(0);
+        left: 80vw;
         opacity: 1;
         filter: none;
     }

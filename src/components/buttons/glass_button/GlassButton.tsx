@@ -5,7 +5,7 @@ const GlassButton: React.FC = () => {
 
 
     return (
-        <div className="glass-button">
+        <div className="glass-button" style={{opacity: 0}}>
 
         </div>
     )

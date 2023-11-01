@@ -3,15 +3,19 @@ import './style/LandingPage.css'
 import AnimatedConsole from "../../components/animated_console/AnimatedConsole.tsx";
 import HeroSection from "../../components/hero_section/HeroSection.tsx";
 
+
 const LandingPage: React.FC = () => {
 
     const [scrollPosition, setScrollPosition] = useState(0);
-
+    const scrollThreshold: number = (30 * window.innerHeight) / 100;
+    //ovo mi treba za consolu
+    //element.style.transform = `perspective(5000px) rotateY(${offsetX}deg) rotateX(${-offsetY}deg)`;
+    const handleScroll = () => {
+        setScrollPosition(window.scrollY);
+    };
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrollPosition(window.scrollY);
-        };
+
 
         // Add scroll event listener
         window.addEventListener('scroll', handleScroll);
@@ -46,8 +50,14 @@ const LandingPage: React.FC = () => {
 
             <div className="content-holder">
                 <div className="bg"/>
-                <div className="slider" style={{transform: `translateX(${scrollPosition}px)`}}/>
 
+                <div className="slider"
+
+                     />
+                <div className="top-nav" style={{
+                    opacity: scrollPosition > scrollThreshold ? 1 : 0,
+                    transform: scrollPosition > scrollThreshold ? 'translateY(0)' : 'translateY(-250px)'
+                }}/>
                 <HeroSection/>
 
 
