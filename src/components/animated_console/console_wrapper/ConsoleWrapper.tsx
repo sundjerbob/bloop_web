@@ -1,24 +1,21 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import CallToAction from "../../call_to_action/CallToAction.tsx";
 import AnimatedConsole from "../console/AnimatedConsole.tsx";
 import './style/ConsoleWrapper.css';
 
 
-const consoleCode1: string[] = [
-    'const c = 10',
-    'if kita  == 25 ',
-    '{',
-    'else Read (c)',
-    'Print (cacaj)',
-    '}',
-    'for var b to c   ',
-    '{',
-    'return micovanko var abvg += 8'
-    , '}'
-];
-
 const ConsoleWrapper: React.FC = () => {
 
+    const [scrollState, setScrollState] = useState(1);
+
+    function handleScroll() {
+        if ((window.scrollY > 200) && (scrollState === 1))
+            setScrollState(2);
+        else if ((window.scrollY < 200) && (scrollState === 2))
+            setScrollState(1);
+    }
+
+    window.addEventListener('scroll', handleScroll)
     useEffect(() => {
 
             setTimeout(() => {
@@ -34,7 +31,7 @@ const ConsoleWrapper: React.FC = () => {
 
             <span className="console-title">Bloop</span>
 
-            <AnimatedConsole code={consoleCode1}/>
+            <AnimatedConsole consoleId="console-1" code={consoleCode1}/>
 
             <CallToAction/>
 
@@ -42,3 +39,26 @@ const ConsoleWrapper: React.FC = () => {
     )
 }
 export default ConsoleWrapper;
+
+const consoleCode1: string[] = [
+    'const c = 10',
+    'if kita  == 25 ',
+    '{',
+    'else Read (c)',
+    'Print (cacaj)',
+    '}',
+    'for var b to c   ',
+    '{',
+    'return micovanko var abvg += 8'
+    , '}'
+];
+
+const consoleCode2: string[] = [
+    'const droa = beckovic + Print ()',
+    'for 2 to drol ',
+    '{',
+    'else Read (c)',
+    'Print ()',
+    'return minaCigan',
+    '}'
+]

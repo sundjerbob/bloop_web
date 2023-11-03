@@ -5,14 +5,15 @@ import React, {useEffect} from "react";
 import './style/AnimatedConsole.css';
 
 interface AnimatedConsoleProps {
+    consoleId: string,
     code: string[];
 }
 
-const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
+const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({consoleId, code}) => {
 
 
     useEffect(() => {
-        const console = document.querySelector('.console') as HTMLElement;
+        const console = document.getElementById(consoleId) as HTMLElement;
 
         setTimeout(() => console?.classList.add('start-typing'), 0);
 
@@ -112,9 +113,9 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({code}) => {
 
     return (
 
-        <div key={'cursor'} className="console">
+        <div id={consoleId} className="console">
             {renderedCode}
-            <span id="cursor">│</span>
+            <span key={'cursor'} id="cursor">│</span>
         </div>
 
     );

@@ -6,9 +6,7 @@ const HeroSection: React.FC = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
     const scrollThreshold: number = (30 * window.innerHeight) / 100;
 
-    const handleScroll = () => {
-        setScrollPosition(window.scrollY);
-    };
+    const handleScroll = () => setScrollPosition(window.scrollY);
 
     useEffect(() => {
 
