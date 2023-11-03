@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import './style/LandingPage.css'
-import AnimatedConsole from "../../components/animated_console/AnimatedConsole.tsx";
 import HeroSection from "../../components/hero_section/HeroSection.tsx";
+import ConsoleWrapper from "../../components/animated_console/console_wrapper/ConsoleWrapper.tsx";
 
 
 const LandingPage: React.FC = () => {
@@ -20,29 +20,13 @@ const LandingPage: React.FC = () => {
         // Add scroll event listener
         window.addEventListener('scroll', handleScroll);
 
-        setTimeout(() => {
-            (document.querySelector('.content-holder') as HTMLElement).classList.add('init');
-        }, 1)
+        setTimeout(() => (document.querySelector('.content-holder') as HTMLElement).classList.add('init'), 0)
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
 
     }, []);
-
-
-    const code = [
-        'const c = 10',
-        'if kita  == 25 ',
-        '{',
-        '   else Read (c)',
-        '   Print (cacaj)',
-        '   }',
-        'for var b to c   ',
-        '{',
-        '   return micovanko var abvg += 8'
-        , '}'
-    ];
 
 
     return (
@@ -53,7 +37,7 @@ const LandingPage: React.FC = () => {
 
                 <div className="slider"
 
-                     />
+                />
                 <div className="top-nav" style={{
                     opacity: scrollPosition > scrollThreshold ? 1 : 0,
                     transform: scrollPosition > scrollThreshold ? 'translateY(0)' : 'translateY(-250px)'
@@ -61,7 +45,7 @@ const LandingPage: React.FC = () => {
                 <HeroSection/>
 
 
-                <AnimatedConsole code={code}/>
+                <ConsoleWrapper/>
 
 
             </div>

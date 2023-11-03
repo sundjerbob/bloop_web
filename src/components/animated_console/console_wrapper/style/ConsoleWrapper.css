@@ -1,0 +1,44 @@
+/* ConsoleWrapper.css */
+
+.console-wrapper {
+
+    font-family: ConsoleFont;
+    font-size: 25px;
+    position: fixed;
+    top: 20vh;
+    left: 80vw;
+    background-color: #0c0c0c;
+    box-shadow: 10px 10px 42px black;
+    border-radius: 25px;
+    transition: left 0.4s ease-out 0.05s,
+    padding-bottom 0.3s ease-out 0.7s;
+
+
+    .console-title {
+        font-size: 30px;
+        position: absolute;
+        top: 14px;
+        left: 100px;
+        padding: 0 10px;
+        background-color: #0c0c0c;
+        color: #f2f2f2;
+        font-weight: 600;
+        opacity: 0;
+        transition: opacity 0.01s ease-in 0.45s;
+        border-radius: 5px;
+    }
+
+    scale: 1.1;
+}
+
+.console-wrapper.init {
+    left: 50vw;
+    padding-bottom: 120px;
+
+
+    .console-title {
+        opacity: 1;
+    }
+
+
+}
