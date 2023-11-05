@@ -6,13 +6,20 @@ import './style/ConsoleWrapper.css';
 
 const ConsoleWrapper: React.FC = () => {
 
-    const [scrollState, setScrollState] = useState(1);
+    const [consoleState_1, setConsoleState_1] = useState(false);
+    const [consoleState_2, setConsoleState_2] = useState(false);
+
 
     function handleScroll() {
-        if ((window.scrollY > 200) && (scrollState === 1))
-            setScrollState(2);
-        else if ((window.scrollY < 200) && (scrollState === 2))
-            setScrollState(1);
+        if ((window.scrollY > 200) && !consoleState_2 ) {
+            setConsoleState_2(true);
+            setConsoleState_1(false)
+
+        } else if ((window.scrollY < 200) && !consoleState_1  ) {
+            setConsoleState_1(true);
+            setConsoleState_2(false);
+        }
+
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -20,8 +27,10 @@ const ConsoleWrapper: React.FC = () => {
 
             setTimeout(() => {
                 const consoleWrapper = document.querySelector('.console-wrapper') as HTMLElement;
-                if (!consoleWrapper.classList.contains('init'))
+                if (!consoleWrapper.classList.contains('init')) {
                     consoleWrapper.classList.add('init');
+                    setConsoleState_1(true)
+                }
             }, 0)
         }
         , []);
@@ -31,7 +40,8 @@ const ConsoleWrapper: React.FC = () => {
 
             <span className="console-title">Bloop</span>
 
-            <AnimatedConsole consoleId="console-1" code={consoleCode1}/>
+            <AnimatedConsole state={consoleState_1} consoleId="console1" code={consoleCode1}/>
+            <AnimatedConsole state={consoleState_2} consoleId="console2" code={consoleCode2}/>
 
             <CallToAction/>
 

@@ -5,23 +5,35 @@ import React, {useEffect} from "react";
 import './style/AnimatedConsole.css';
 
 interface AnimatedConsoleProps {
+    state: boolean,
     consoleId: string,
     code: string[];
 }
 
-const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({consoleId, code}) => {
+const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({state, consoleId, code}) => {
 
 
     useEffect(() => {
         const console = document.getElementById(consoleId) as HTMLElement;
+        if (state) {
+            if (console.classList.contains('invisible'))
+                console.classList.remove('invisible');
+            if (!console.classList.contains('start-typing'))
+                console.classList.add('start-typing');
+        } else {
+            if (console.classList.contains('start-typing'))
+                console.classList.remove('start-typing');
+            if (!console.classList.contains('invisible'))
+                console.classList.add('invisible')
+        }
 
-        setTimeout(() => console?.classList.add('start-typing'), 0);
+        console?.classList.add(state ? 'start-typing' : 'invisible')
 
-    }, []);
+    }, [consoleId, state]);
 
 
     const delta: number = 0.01;
-    let delaySum: number = 0.8;
+    let delaySum: number = 1.1;
 
     const indent: number = 50;
     let scopeDepth: number = 1;
@@ -113,7 +125,7 @@ const AnimatedConsole: React.FC<AnimatedConsoleProps> = ({consoleId, code}) => {
 
     return (
 
-        <div id={consoleId} className="console">
+        <div id={consoleId} className={`console `}>
             {renderedCode}
             <span key={'cursor'} id="cursor">│</span>
         </div>

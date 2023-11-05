@@ -12,6 +12,7 @@ const LandingPage: React.FC = () => {
     //element.style.transform = `perspective(5000px) rotateY(${offsetX}deg) rotateX(${-offsetY}deg)`;
     const handleScroll = () => {
         setScrollPosition(window.scrollY);
+
     };
 
     useEffect(() => {
@@ -35,7 +36,11 @@ const LandingPage: React.FC = () => {
             <div className="content-holder">
                 <div className="bg"/>
 
-                <div className="slider"
+                <div className="slider" style={
+                    {
+                        left: scrollPosition > scrollThreshold? 'calc(80vw +  ' + scrollPosition + 'px / 2)' : ''
+                    }
+                }
 
                 />
                 <div className="top-nav" style={{

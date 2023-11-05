@@ -27,13 +27,12 @@
     height: 100px;
     transition: all 0.2s ease-out ;
     background-color: #181616FF; /* Change the color as needed */
-    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5);
 }
 
 .slider {
     left: 170vw;
     top: 0;
-    width: 40vw;
+    width: 50vw;
     height: 100vh; /* Change the height to the desired thickness of the divider */
     background-color: #181616FF; /* Change the color as needed */
     position: fixed;
