@@ -52,23 +52,24 @@ export default ConsoleWrapper;
 
 const consoleCode1: string[] = [
     'const c = 10',
-    'if kita  == 25 ',
+    'if c == 25 ',
     '{',
     'else Read (c)',
     'Print (cacaj)',
     '}',
     'for var b to c   ',
     '{',
-    'return micovanko var abvg += 8'
+    'return milovan var abvg += 8'
     , '}'
 ];
 
 const consoleCode2: string[] = [
-    'const droa = beckovic + Print ()',
-    'for 2 to drol ',
+    'const olja  = beckovic + Print ()',
+    'for 2 to olja ',
     '{',
     'else Read (c)',
-    'Print ()',
-    'return minaCigan',
-    '}'
+    'Print (olja)',
+    '}',
+    'return minaMina',
+
 ]
