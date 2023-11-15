@@ -10,6 +10,7 @@ const LandingPage: React.FC = () => {
     const scrollThreshold: number = (30 * window.innerHeight) / 100;
     //ovo mi treba za consolu
     //element.style.transform = `perspective(5000px) rotateY(${offsetX}deg) rotateX(${-offsetY}deg)`;
+
     const handleScroll = () => {
         setScrollPosition(window.scrollY);
 
@@ -19,12 +20,12 @@ const LandingPage: React.FC = () => {
 
 
         // Add scroll event listener
-        window.addEventListener('scroll', handleScroll);
+         window.addEventListener('scroll', handleScroll);
 
         setTimeout(() => (document.querySelector('.content-holder') as HTMLElement).classList.add('init'), 0)
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+             window.removeEventListener('scroll', handleScroll);
         };
 
     }, []);
@@ -38,7 +39,7 @@ const LandingPage: React.FC = () => {
 
                 <div className="slider" style={
                     {
-                        left: scrollPosition > scrollThreshold? 'calc(80vw +  ' + scrollPosition + 'px / 2)' : ''
+                        left: scrollPosition > scrollThreshold ? 'calc(80vw +  ' + scrollPosition + 'px / 2)' : ''
                     }
                 }
 

@@ -11,22 +11,46 @@ const ConsoleWrapper: React.FC = () => {
 
 
     function handleScroll() {
-        if ((window.scrollY > 200) && !consoleState_2 ) {
+        if ((window.scrollY > 200) && !consoleState_2) {
             setConsoleState_2(true);
             setConsoleState_1(false)
 
-        } else if ((window.scrollY < 200) && !consoleState_1  ) {
+        } else if ((window.scrollY < 200) && !consoleState_1) {
             setConsoleState_1(true);
             setConsoleState_2(false);
         }
 
+
     }
+
 
     window.addEventListener('scroll', handleScroll)
     useEffect(() => {
 
+            /*function rotateElement(event: MouseEvent, element: HTMLElement | null) {
+                if (element === null) {
+                    return;
+                }
+
+                const elementRect = element.getBoundingClientRect(); // Get the element's position and dimensions
+                const x = event.clientX - elementRect.left; // Calculate cursor's x position relative to the element
+                const y = event.clientY - elementRect.top;  // Calculate cursor's y position relative to the element
+
+                const middleX = elementRect.width / 2;
+                const middleY = elementRect.height / 2;
+
+                const offsetX = ((x - middleX) / middleX) * 45;
+                const offsetY = ((y - middleY) / middleY) * 45;
+
+                // Apply the updated transform property directly to the element's style
+                element.style.transform = `perspective(5000px) rotateY(${offsetX}deg) rotateX(${-offsetY}deg)`;
+            }*/
+
             setTimeout(() => {
+
                 const consoleWrapper = document.querySelector('.console-wrapper') as HTMLElement;
+                //consoleWrapper.addEventListener('mousemove', event => rotateElement(event, consoleWrapper))
+
                 if (!consoleWrapper.classList.contains('init')) {
                     consoleWrapper.classList.add('init');
                     setConsoleState_1(true)
